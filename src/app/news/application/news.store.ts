@@ -6,11 +6,11 @@ import {finalize} from 'rxjs';
 @Service()
 export class NewsStore {
   private readonly NewsApi = inject(NewsApi);
-  private readonly articleState = signal<Article[]>([]);
+  private readonly articlesState = signal<Article[]>([]);
   private readonly loadingState = signal<boolean>(false);
   private readonly errorState = signal<string | null>('');
 
-  readonly articles = computed(() => this.errorState());
+  readonly articles = computed(() => this.articlesState());
   readonly loading = computed(() => this.loadingState());
   readonly error = computed(() => this.errorState());
 
@@ -18,17 +18,15 @@ export class NewsStore {
     this.loadingState.set(true);
     this.errorState.set('');
     this.NewsApi.getArticlesByQuery(query)
-      .pipe(
-        finalize(() => this.loadingState.set(false))
-      )
+      .pipe(finalize(() => this.loadingState.set(false)))
       .subscribe({
         next: (articles) => {
-          this.articleState.set(articles);
+          this.articlesState.set(articles);
         },
         error: (error) => {
           this.errorState.set(error.message);
           this.loadingState.set(false);
-        }
+        },
       });
   }
 }

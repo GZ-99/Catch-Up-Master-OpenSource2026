@@ -1,7 +1,7 @@
-import {Component, inject, signal} from '@angular/core';
-import {NewsStore} from '../../application/news.store';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { Component, inject, signal } from '@angular/core';
+import { NewsStore } from '../../application/news.store';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   imports: [MatCardModule, MatButtonModule],

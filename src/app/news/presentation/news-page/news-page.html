@@ -1,8 +1,31 @@
 <div class="articles">
-  @for(article of store.articles(); track article.url + $index) {
-    <div class="article">
-      <h2>{{article.title}}</h2>
-      <p>{{article.description}}</p>
-      <a href="{{article}}"
+  @for(article of store.articles(); track article.url +$index) {
+    <!--<div class="article">
+      <h2>{{ article.title }}</h2>
+      <p>{{ article.description }}</p>
+      <a href="{{ article.url}}" target="_blank">Read more</a>
+      <img src="{{ article.urlToImage }}" alt="{{ article.title }}">
+    </div> -->
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ article.title }}</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{ article.urlToImage }}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button matButton>LIKE</button>
+        <button matButton>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+
+
   }
 </div>

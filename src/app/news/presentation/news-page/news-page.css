@@ -1,8 +1,5 @@
-.example-card {
-  max-width: 400px;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.articles{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 26px;
 }
