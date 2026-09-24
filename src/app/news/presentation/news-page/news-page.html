@@ -1,0 +1,8 @@
+<div class="articles">
+  @for(article of store.articles(); track article.url + $index) {
+    <div class="article">
+      <h2>{{article.title}}</h2>
+      <p>{{article.description}}</p>
+      <a href="{{article}}"
+  }
+</div>
